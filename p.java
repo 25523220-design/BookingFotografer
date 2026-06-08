@@ -8,6 +8,7 @@ public class p {
         String nama = input.nextLine();
 
         System.out.println("Halo, " + nama);
+        System.out.println("Halo");
 
         input.close();
     }
