@@ -11,5 +11,6 @@ public class p {
         System.out.println("Halo");
 
         input.close();
+        // Ini adalah komentar
     }
 }
