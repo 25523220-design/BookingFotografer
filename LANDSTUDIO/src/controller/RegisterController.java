@@ -63,7 +63,6 @@ public class RegisterController {
         }
 
         User user = new User(
-                dao.getNextId(),
                 tfnama.getText(),
                 tfemail.getText(),
                 tfsandi.getText());
