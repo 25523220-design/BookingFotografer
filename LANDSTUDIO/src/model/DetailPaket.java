@@ -8,6 +8,8 @@ public class DetailPaket {
     private String deskripsi_paket;
     private String foto_paket;
 
+    public void tampilkanPaket() {}
+
     public DetailPaket(String id_paket, String nama_paket, String harga_paket, String durasi_paket, String deskripsi_paket, String foto_paket) {
         this.id_paket = id_paket;
         this.nama_paket = nama_paket;
