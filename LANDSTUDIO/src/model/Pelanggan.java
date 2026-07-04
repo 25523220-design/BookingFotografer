@@ -4,13 +4,12 @@ public class Pelanggan extends User {
 
     private String idPelanggan;
 
-    public Pelanggan(int id,
-                     String idPelanggan,
+    public Pelanggan(String idPelanggan,
                      String nama,
                      String email,
                      String password) {
 
-        super(id, nama, email, password);
+        super(nama, email, password);
         this.idPelanggan = idPelanggan;
     }
 
