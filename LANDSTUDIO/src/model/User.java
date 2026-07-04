@@ -2,13 +2,11 @@ package model;
 
 public class User {
 
-    protected int id;
     protected String nama;
     protected String email;
     protected String password;
 
-    public User(int id, String nama, String email, String password) {
-        this.id = id;
+    public User(String nama, String email, String password) {
         this.nama = nama;
         this.email = email;
         this.password = password;
@@ -22,10 +20,6 @@ public class User {
 
     }
 
-    public int getId() {
-        return id;
-    }
-
     public String getNama() {
         return nama;
     }
@@ -36,10 +30,6 @@ public class User {
 
     public String getPassword() {
         return password;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setNama(String nama) {
