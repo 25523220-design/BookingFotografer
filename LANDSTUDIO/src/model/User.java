@@ -1,55 +1,56 @@
- package model;
+package model;
 
 public class User {
+
+    protected int id;
     protected String nama;
-    protected String emailNoTelp;
-    protected String kataSandiBaru;
-    protected String kataSandi;
+    protected String email;
+    protected String password;
 
-    public void daftar() {}
-    public void masuk() {}
-    public void keluar() {}
-
-    public User(String nama,
-                String emailNoTelp,
-                String kataSandiBaru,
-                String kataSandi) {
-
+    public User(int id, String nama, String email, String password) {
+        this.id = id;
         this.nama = nama;
-        this.emailNoTelp = emailNoTelp;
-        this.kataSandiBaru = kataSandiBaru;
-        this.kataSandi = kataSandi;
+        this.email = email;
+        this.password = password;
+    }
+
+    public void login() {
+
+    }
+
+    public void logout() {
+
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNama() {
         return nama;
     }
 
-    public String getEmailNoTelp() {
-        return emailNoTelp;
-    }
-    
-    public String getKataSandiBaru() {
-        return kataSandiBaru;
+    public String getEmail() {
+        return email;
     }
 
-    public String getKataSandi() {
-        return kataSandi;
+    public String getPassword() {
+        return password;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setNama(String nama) {
         this.nama = nama;
     }
 
-    public void setEmailNoTelp(String emailNoTelp) {
-        this.emailNoTelp = emailNoTelp;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-
-    public void setKataSandiBaru(String kataSandiBaru) {
-        this.kataSandiBaru = kataSandiBaru;
-    }
-
-    public void setKataSandi(String kataSandi) {
-        this.kataSandi = kataSandi;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -2,23 +2,23 @@ package model;
 
 public class Pelanggan extends User {
 
-    private String id_Pelanggan;
+    private String idPelanggan;
 
-    public Pelanggan(String id_Pelanggan,
+    public Pelanggan(int id,
+                     String idPelanggan,
                      String nama,
-                     String emailNoTelp,
-                     String kataSandiBaru,
-                     String kataSandi) {
+                     String email,
+                     String password) {
 
-        super(nama, emailNoTelp, kataSandiBaru, kataSandi);
-        this.id_Pelanggan = id_Pelanggan;
+        super(id, nama, email, password);
+        this.idPelanggan = idPelanggan;
     }
 
-    public String getId_Pelanggan() {
-        return id_Pelanggan;
+    public String getIdPelanggan() {
+        return idPelanggan;
     }
 
-    public void setId_Pelanggan(String id_Pelanggan) {
-        this.id_Pelanggan = id_Pelanggan;
+    public void setIdPelanggan(String idPelanggan) {
+        this.idPelanggan = idPelanggan;
     }
 }
