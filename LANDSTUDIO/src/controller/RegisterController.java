@@ -52,7 +52,7 @@ public class RegisterController {
 
         if (!tfsandi.getText().equals(tfkonfirmasisandi.getText())) {
 
-            alert("Konfirmasi password tidak sama.");
+            alert("Masukkan sandi yang sama");
             return;
         }
 
