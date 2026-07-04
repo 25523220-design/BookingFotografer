@@ -62,10 +62,7 @@ public class RegisterController {
             return;
         }
 
-        User user = new User(
-                tfnama.getText(),
-                tfemail.getText(),
-                tfsandi.getText());
+        User user = new User(tfnama.getText(), tfemail.getText(), tfsandi.getText());
 
         dao.save(user);
 
