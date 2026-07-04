@@ -86,17 +86,21 @@
          <children>
             <HBox spacing="20.0">
                <children>
+                  <Hyperlink fx:id="btnmasuk" onAction="#btnmasukklik" text="Masuk" textFill="#B5B5B5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Hyperlink>
                   <VBox alignment="CENTER" spacing="5.0">
                      <children>
                         <Label text="Daftar" textFill="#1A1A1A">
-                           <font><Font name="System Bold" size="18.0" /></font>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
                         </Label>
                         <Region prefHeight="3.0" prefWidth="50.0" style="-fx-background-color: #E5A93C;" />
                      </children>
                   </VBox>
-                  <Hyperlink fx:id="btnmasuk" onAction="#btnmasukklik" text="Masuk" textFill="#B5B5B5">
-                     <font><Font size="18.0" /></font>
-                  </Hyperlink>
                </children>
                <VBox.margin>
                   <Insets bottom="40.0" />
