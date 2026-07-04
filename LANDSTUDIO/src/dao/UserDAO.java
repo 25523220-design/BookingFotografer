@@ -43,12 +43,11 @@ public class UserDAO {
 
                 Element e = (Element) list.item(i);
 
-                int id = Integer.parseInt(e.getElementsByTagName("id").item(0).getTextContent());
                 String nama = e.getElementsByTagName("nama").item(0).getTextContent();
                 String email = e.getElementsByTagName("email").item(0).getTextContent();
                 String password = e.getElementsByTagName("password").item(0).getTextContent();
 
-                users.add(new User(id, nama, email, password));
+                users.add(new User(nama, email, password));
 
             }
 
@@ -89,9 +88,6 @@ public class UserDAO {
 
             Element userElement = doc.createElement("user");
 
-            Element id = doc.createElement("id");
-            id.appendChild(doc.createTextNode(String.valueOf(user.getId())));
-
             Element nama = doc.createElement("nama");
             nama.appendChild(doc.createTextNode(user.getNama()));
 
@@ -101,7 +97,6 @@ public class UserDAO {
             Element password = doc.createElement("password");
             password.appendChild(doc.createTextNode(user.getPassword()));
 
-            userElement.appendChild(id);
             userElement.appendChild(nama);
             userElement.appendChild(email);
             userElement.appendChild(password);
@@ -164,26 +159,4 @@ public class UserDAO {
         return false;
 
     }
-
-    // Generate ID
-    public int getNextId() {
-
-        ArrayList<User> users = readUsers();
-
-        int max = 0;
-
-        for (User u : users) {
-
-            if (u.getId() > max) {
-
-                max = u.getId();
-
-            }
-
-        }
-
-        return max + 1;
-
-    }
-
 }
