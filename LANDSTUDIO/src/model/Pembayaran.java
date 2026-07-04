@@ -13,6 +13,12 @@ public class Pembayaran {
     private LocalDateTime batasWaktuBayar;
     private StatusBayar statusBayar;
 
+    private enum StatusBayar {
+        BELUM_BAYAR,
+        SUDAH_BAYAR,
+        KADALUARSA
+    }
+
     public Pembayaran(String idBooking, String idPembayaran, double nominal,
                       String buktiTransfer, Date tanggalBayar,
                       LocalDateTime batasWaktuBayar, StatusBayar statusBayar) {
