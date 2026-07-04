@@ -66,6 +66,11 @@ public class UserDAO {
 
             File file = new File(FILE_NAME);
 
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+
+
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -89,13 +94,13 @@ public class UserDAO {
             Element userElement = doc.createElement("user");
 
             Element nama = doc.createElement("nama");
-            nama.appendChild(doc.createTextNode(user.getNama()));
+            nama.setTextContent(user.getNama());
 
             Element email = doc.createElement("email");
-            email.appendChild(doc.createTextNode(user.getEmail()));
+            email.setTextContent(user.getEmail());
 
             Element password = doc.createElement("password");
-            password.appendChild(doc.createTextNode(user.getPassword()));
+            password.setTextContent(user.getPassword());
 
             userElement.appendChild(nama);
             userElement.appendChild(email);
@@ -108,10 +113,9 @@ public class UserDAO {
 
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(file);
+            transformer.transform(new DOMSource(doc), new StreamResult(file));
 
-            transformer.transform(source, result);
+            System.out.println("Data berhasil disimpan.");
 
         } catch (Exception e) {
 
