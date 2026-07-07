@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="rootScroll" fitToWidth="true" fitToHeight="false" styleClass="root-scroll" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.landstudio.AdminDashboardController">
+    <content>
+        <VBox fx:id="pageBox" styleClass="page">
+
+            <!-- ===== HEADER ADMIN ===== -->
+            <HBox styleClass="admin-header" alignment="CENTER_LEFT" spacing="24">
+                <padding>
+                    <Insets top="18" right="48" bottom="18" left="48"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="admin-logo"/>
+                <Label text="ADMIN" styleClass="admin-badge"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="navPesananLabel" text="Pesanan" styleClass="admin-nav" onMouseClicked="#goToPesanan"/>
+                <Label fx:id="navPaketLabel" text="Kelola Paket" styleClass="admin-nav" onMouseClicked="#goToKelolaPaket"/>
+                <Label fx:id="adminNameLabel" text="Admin" styleClass="admin-user"/>
+                <Label text="Keluar" styleClass="admin-logout" onMouseClicked="#handleLogout"/>
+            </HBox>
+            <Region styleClass="header-divider" minHeight="1" maxHeight="1"/>
+
+            <!-- ===== ISI ===== -->
+            <VBox styleClass="content-section" spacing="18">
+                <padding>
+                    <Insets top="30" right="48" bottom="60" left="48"/>
+                </padding>
+
+                <Label text="Pesanan Pelanggan" styleClass="page-title"/>
+                <Label text="Kelola semua pesanan sesi foto yang masuk dari pelanggan."
+                       styleClass="page-subtitle" wrapText="true"/>
+
+                <!-- Ringkasan angka -->
+                <HBox spacing="16">
+                    <VBox styleClass="stat-card" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label fx:id="statTotalLabel" text="0" styleClass="stat-value"/>
+                        <Label text="Total Pesanan" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label fx:id="statPendingLabel" text="0" styleClass="stat-value"/>
+                        <Label text="Menunggu Konfirmasi" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label fx:id="statConfirmedLabel" text="0" styleClass="stat-value"/>
+                        <Label text="Dikonfirmasi" styleClass="stat-label"/>
+                    </VBox>
+                    <VBox styleClass="stat-card" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label fx:id="statRevenueLabel" text="Rp 0" styleClass="stat-value"/>
+                        <Label text="Pendapatan Terkonfirmasi" styleClass="stat-label"/>
+                    </VBox>
+                </HBox>
+
+                <Label fx:id="emptyLabel" text="Belum ada pesanan yang masuk."
+                       styleClass="page-subtitle" visible="false" managed="false"/>
+
+                <VBox fx:id="ordersContainer" spacing="16"/>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>

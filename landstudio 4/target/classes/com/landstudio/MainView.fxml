@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="rootScroll" fitToWidth="true" fitToHeight="false" styleClass="root-scroll" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.landstudio.MainController">
+    <content>
+        <VBox fx:id="pageBox" styleClass="page">
+
+            <!-- ===================== HEADER ===================== -->
+            <HBox styleClass="header" alignment="CENTER_LEFT" spacing="0">
+                <padding>
+                    <Insets top="18" right="60" bottom="18" left="60"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="logo"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox alignment="CENTER" spacing="36" styleClass="nav">
+                    <VBox alignment="CENTER" spacing="4">
+                        <Label text="BERANDA" styleClass="nav-item, nav-active"/>
+                        <Region styleClass="nav-underline"/>
+                    </VBox>
+                    <Label text="PORTOFOLIO" styleClass="nav-item" onMouseClicked="#goToPortfolio"/>
+                    <Label text="BOOKING" styleClass="nav-item" onMouseClicked="#goToBooking"/>
+                    <Label text="PAKET" styleClass="nav-item" onMouseClicked="#goToPaket"/>
+                </HBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="userNameLabel" text="MASUK / DAFTAR" styleClass="user-name"/>
+            </HBox>
+            <Region styleClass="header-divider" minHeight="1" maxHeight="1"/>
+
+            <!-- ============ PESANAN SAYA (hanya tampil jika login & punya booking) ============ -->
+            <VBox fx:id="myOrdersSection" styleClass="content-section" spacing="18" visible="false" managed="false">
+                <padding>
+                    <Insets top="40" right="60" bottom="8" left="60"/>
+                </padding>
+                <Label text="Pesanan Saya" styleClass="page-title-sm"/>
+                <Label text="Rincian booking Anda, lengkap dengan status pembayaran dan opsi kelola jadwal."
+                       styleClass="page-subtitle" wrapText="true"/>
+                <VBox fx:id="myOrdersContainer" spacing="16"/>
+            </VBox>
+
+            <!-- ===================== PORTFOLIO GRID ===================== -->
+            <VBox styleClass="content-section" spacing="24">
+                <padding>
+                    <Insets top="48" right="60" bottom="48" left="60"/>
+                </padding>
+                <HBox spacing="24">
+                    <StackPane fx:id="card1" styleClass="card, card-bg-1" HBox.hgrow="ALWAYS">
+                        <Region styleClass="card-overlay"/>
+                        <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
+                            <padding>
+                                <Insets top="0" right="32" bottom="28" left="32"/>
+                            </padding>
+                            <Label text="01" styleClass="card-number"/>
+                            <Label text="Pernikahan" styleClass="card-title"/>
+                            <Label text="Menangkap simfoni emosi dalam penyatuan paling sakral Anda dengan kualitas sinematik yang abadi."
+                                   styleClass="card-desc" wrapText="true"/>
+                        </VBox>
+                    </StackPane>
+                    <StackPane fx:id="card2" styleClass="card, card-bg-2" HBox.hgrow="ALWAYS">
+                        <Region styleClass="card-overlay"/>
+                        <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
+                            <padding>
+                                <Insets top="0" right="32" bottom="28" left="32"/>
+                            </padding>
+                            <Label text="02" styleClass="card-number"/>
+                            <Label text="Wisuda" styleClass="card-title"/>
+                            <Label text="Mendokumentasikan puncak pencapaian akademik."
+                                   styleClass="card-desc" wrapText="true"/>
+                        </VBox>
+                    </StackPane>
+                </HBox>
+                <StackPane fx:id="card3" styleClass="card, card-bg-3">
+                    <Region styleClass="card-overlay"/>
+                    <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
+                        <padding>
+                            <Insets top="0" right="32" bottom="28" left="32"/>
+                        </padding>
+                        <Label text="03" styleClass="card-number"/>
+                        <Label text="Pre-Wedding" styleClass="card-title"/>
+                        <Label text="Narasi intim yang ditangkap dalam momen tenang sebelum perayaan agung. Refleksi dari chemistry unik Anda."
+                               styleClass="card-desc" wrapText="true"/>
+                    </VBox>
+                </StackPane>
+            </VBox>
+
+            <!-- ===================== QUOTE SECTION ===================== -->
+            <VBox styleClass="quote-section" alignment="CENTER" spacing="18">
+                <padding>
+                    <Insets top="70" right="120" bottom="70" left="120"/>
+                </padding>
+                <Label text="&#8220;" styleClass="quote-mark"/>
+                <Label text="&quot;Fotografi bukan tentang apa yang dilihat, melainkan tentang bagaimana hal itu diingat.&quot;"
+                       styleClass="quote-text" wrapText="true" textAlignment="CENTER"/>
+                <Label text="— JULIEN LUMINA, PENDIRI" styleClass="quote-author"/>
+            </VBox>
+
+            <!-- ===================== CTA SECTION ===================== -->
+            <VBox styleClass="cta-section" alignment="CENTER" spacing="18">
+                <padding>
+                    <Insets top="80" right="120" bottom="80" left="120"/>
+                </padding>
+                <Label text="Abadikan Warisan Anda" styleClass="cta-title"/>
+                <Label text="Sesi terbatas tersedia untuk musim mendatang. Konsultasikan dengan direktur kreatif kami untuk merancang narasi visual pribadi Anda."
+                       styleClass="cta-subtitle" wrapText="true" textAlignment="CENTER"/>
+                <HBox spacing="16" alignment="CENTER">
+                    <padding>
+                        <Insets top="14"/>
+                    </padding>
+                    <Button text="HUBUNGI KAMI" styleClass="btn-gold" onAction="#goToBooking"/>
+                    <Button text="LIHAT HARGA" styleClass="btn-outline" onAction="#goToPaket"/>
+                </HBox>
+            </VBox>
+
+            <!-- ===================== FOOTER ===================== -->
+            <VBox styleClass="footer" alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets top="50" bottom="50"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="footer-logo"/>
+                <Label text="© 2026 TEMAN STUDIO. Seluruh hak cipta dilindungi undang-undang." styleClass="footer-text"/>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>
