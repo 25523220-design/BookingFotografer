@@ -61,9 +61,17 @@ public class Booking {
     private final LocalDateTime createdAt;
 
     public Booking(String id, String ownerEmail) {
+        this(id, ownerEmail, LocalDateTime.now());
+    }
+
+    /**
+     * Konstruktor untuk memulihkan booking dari penyimpanan (XML) dengan
+     * mempertahankan waktu pembuatan aslinya. Dipakai oleh {@link Database}.
+     */
+    public Booking(String id, String ownerEmail, LocalDateTime createdAt) {
         this.id = id;
         this.ownerEmail = ownerEmail;
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = createdAt != null ? createdAt : LocalDateTime.now();
         this.paymentStatus = PaymentStatus.BELUM_BAYAR;
         this.status = BookingStatus.MENUNGGU_KONFIRMASI;
     }

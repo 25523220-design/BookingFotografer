@@ -43,7 +43,16 @@ public final class PackageCatalog {
     private static final List<Tier> TIERS = new ArrayList<>();
 
     static {
-        TIERS.addAll(defaultTiers());
+        Database.init();
+        List<Tier> saved = Database.loadPackages();
+        if (saved.isEmpty()) {
+            // Belum ada packages.xml -> pakai data bawaan lalu simpan.
+            TIERS.addAll(defaultTiers());
+            Database.savePackages(TIERS);
+        } else {
+            // Sudah ada -> pakai data hasil ubahan admin yang tersimpan.
+            TIERS.addAll(saved);
+        }
     }
 
     private PackageCatalog() {
@@ -117,6 +126,7 @@ public final class PackageCatalog {
             return false;
         }
         TIERS.add(tier);
+        Database.savePackages(TIERS); // simpan perubahan ke packages.xml
         return true;
     }
 
@@ -139,6 +149,7 @@ public final class PackageCatalog {
             return false;
         }
         TIERS.set(index, updated);
+        Database.savePackages(TIERS); // simpan perubahan ke packages.xml
         return true;
     }
 
@@ -149,6 +160,7 @@ public final class PackageCatalog {
             return false;
         }
         TIERS.remove(index);
+        Database.savePackages(TIERS); // simpan perubahan ke packages.xml
         return true;
     }
 

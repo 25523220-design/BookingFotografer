@@ -158,6 +158,9 @@ public class MainController {
             confirm.showAndWait().ifPresent(choice -> {
                 if (choice == ButtonType.YES) {
                     booking.setStatus(Booking.BookingStatus.DIBATALKAN);
+                    Session.saveBookings();
+                    Database.logActivity(booking.getOwnerEmail(), "PESANAN_BATAL",
+                            "Pelanggan membatalkan pesanan " + booking.getId());
                     buildMyOrdersSection();
                 }
             });

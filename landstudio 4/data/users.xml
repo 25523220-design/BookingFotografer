@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users>
+  <user admin="true">
+    <fullName>Admin Land Studio</fullName>
+    <email>admin@landstudio.com</email>
+    <password>admin123</password>
+  </user>
+  <user admin="false">
+    <fullName>Budi Santoso</fullName>
+    <email>budi@email.com</email>
+    <password>budi123</password>
+  </user>
+  <user admin="false">
+    <fullName>luqman</fullName>
+    <email>luqman@gmail.com</email>
+    <password>luqman</password>
+  </user>
+</users>

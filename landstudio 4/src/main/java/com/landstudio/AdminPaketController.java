@@ -177,6 +177,8 @@ public class AdminPaketController {
         confirm.showAndWait().ifPresent(choice -> {
             if (choice == ButtonType.YES) {
                 PackageCatalog.removeTier(tier.label());
+                Database.logActivity(adminEmail(), "PAKET_HAPUS",
+                        "Menghapus paket \"" + tier.label() + "\"");
                 if (tier.label().equals(editingLabel)) {
                     resetForm();
                 }
@@ -274,12 +276,19 @@ public class AdminPaketController {
                 showError("Paket \"" + tier.label() + "\" sudah ada. Gunakan nama lain.");
                 return;
             }
+            Database.logActivity(adminEmail(), "PAKET_TAMBAH",
+                    "Menambah paket \"" + tier.label() + "\" ("
+                            + tier.priceFormatted() + ")");
         } else {
+            String oldLabel = editingLabel;
             ok = PackageCatalog.updateTier(editingLabel, tier);
             if (!ok) {
                 showError("Gagal menyimpan: nama \"" + tier.label() + "\" bentrok dengan paket lain.");
                 return;
             }
+            Database.logActivity(adminEmail(), "PAKET_UBAH",
+                    "Mengubah paket \"" + oldLabel + "\" menjadi \"" + tier.label()
+                            + "\" (" + tier.priceFormatted() + ")");
         }
 
         refreshKategoriOptions();
@@ -312,5 +321,10 @@ public class AdminPaketController {
 
     private String safe(String v) {
         return v == null ? "" : v.trim();
+    }
+
+    private String adminEmail() {
+        User u = Session.getCurrentUser();
+        return u == null ? Session.ADMIN_EMAIL : u.getEmail();
     }
 }

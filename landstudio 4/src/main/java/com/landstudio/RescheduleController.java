@@ -81,6 +81,10 @@ public class RescheduleController {
         booking.setTanggal(tanggalBaru);
         booking.setJam(jamBaru);
         booking.setStatus(Booking.BookingStatus.MENUNGGU_KONFIRMASI);
+        Session.saveBookings();
+        Database.logActivity(booking.getOwnerEmail(), "GANTI_JADWAL",
+                "Pesanan " + booking.getId() + " dijadwalkan ulang ke "
+                        + booking.getTanggalFormatted() + ", pukul " + jamBaru);
         Session.setRescheduleTarget(null);
         SceneManager.switchTo("MainView.fxml");
     }

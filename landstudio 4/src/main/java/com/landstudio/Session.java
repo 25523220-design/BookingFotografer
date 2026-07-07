@@ -10,12 +10,13 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Menyimpan status aplikasi selama program berjalan: akun terdaftar, siapa yang
- * sedang login, dan daftar booking tiap pelanggan.
+ * Menyimpan status aplikasi: akun terdaftar, siapa yang sedang login, dan daftar
+ * booking tiap pelanggan.
  *
- * Catatan: penyimpanan di memori saja (bukan database), jadi semua data hilang
- * setiap aplikasi ditutup. Cukup untuk mendemonstrasikan alur login/daftar,
- * pemilihan paket, booking, pembayaran, manajemen jadwal, dan dashboard admin.
+ * Data disimpan permanen ke file XML lewat {@link Database} (folder "data"),
+ * jadi TIDAK hilang saat aplikasi ditutup. Saat start, data dimuat dari XML;
+ * setiap ada perubahan (registrasi, booking, ganti jadwal, pembatalan, aksi
+ * admin), perubahannya langsung ditulis kembali ke file.
  */
 public final class Session {
 
@@ -34,10 +35,85 @@ public final class Session {
     public static final String ADMIN_PASSWORD = "admin123";
 
     static {
-        seedInitialData();
+        Database.init();
+        loadOrSeed();
     }
 
     private Session() {
+    }
+
+    /**
+     * Saat aplikasi dijalankan: coba muat data dari file XML. Jika belum ada
+     * (pemakaian pertama), isi data awal lalu simpan ke XML supaya kali
+     * berikutnya langsung dibaca dari file.
+     */
+    private static void loadOrSeed() {
+        List<User> users = Database.loadUsers();
+        List<Booking> bookings = Database.loadBookings();
+
+        if (users.isEmpty()) {
+            // Pertama kali dijalankan -> buat data contoh, lalu tulis ke XML.
+            seedInitialData();
+            saveUsers();
+            saveBookings();
+            return;
+        }
+
+        // Muat akun.
+        for (User u : users) {
+            String key = normalize(u.getEmail());
+            registeredUsers.put(key, u);
+            bookingsByEmail.putIfAbsent(key, new ArrayList<>());
+        }
+        // Muat booking ke pemiliknya masing-masing.
+        for (Booking b : bookings) {
+            bookingsByEmail
+                    .computeIfAbsent(normalize(b.getOwnerEmail()), k -> new ArrayList<>())
+                    .add(b);
+        }
+        // Jaga-jaga: pastikan akun admin bawaan selalu tersedia.
+        if (!registeredUsers.containsKey(normalize(ADMIN_EMAIL))) {
+            User admin = new User("Admin Land Studio", ADMIN_EMAIL, ADMIN_PASSWORD, true);
+            registeredUsers.put(normalize(ADMIN_EMAIL), admin);
+            bookingsByEmail.putIfAbsent(normalize(ADMIN_EMAIL), new ArrayList<>());
+            saveUsers();
+        }
+        // Lanjutkan penomoran booking dari ID terakhir yang tersimpan.
+        initCounterFromBookings();
+    }
+
+    /** Set penghitung ID booking ke (nomor terbesar yang ada + 1). */
+    private static void initCounterFromBookings() {
+        int max = 0;
+        for (List<Booking> list : bookingsByEmail.values()) {
+            for (Booking b : list) {
+                String id = b.getId();
+                if (id != null && id.startsWith("LS-")) {
+                    try {
+                        max = Math.max(max, Integer.parseInt(id.substring(3)));
+                    } catch (NumberFormatException ignored) {
+                        // abaikan ID yang formatnya tak terduga
+                    }
+                }
+            }
+        }
+        bookingCounter.set(max + 1);
+    }
+
+    // ===================== SIMPAN KE XML =====================
+
+    /** Tulis seluruh akun terdaftar ke users.xml. */
+    public static void saveUsers() {
+        Database.saveUsers(registeredUsers.values());
+    }
+
+    /** Tulis seluruh booking (dari semua pelanggan) ke bookings.xml. */
+    public static void saveBookings() {
+        List<Booking> all = new ArrayList<>();
+        for (List<Booking> list : bookingsByEmail.values()) {
+            all.addAll(list);
+        }
+        Database.saveBookings(all);
     }
 
     /**
@@ -101,6 +177,9 @@ public final class Session {
         registeredUsers.put(key, user);
         bookingsByEmail.put(key, new ArrayList<>());
         currentUser = user;
+        saveUsers(); // simpan data registrasi ke users.xml
+        Database.logActivity(email, "REGISTRASI",
+                "Akun baru terdaftar: " + fullName + " (" + email + ")");
         return true;
     }
 
@@ -178,6 +257,10 @@ public final class Session {
         bookingsByEmail
                 .computeIfAbsent(normalize(currentUser.getEmail()), k -> new ArrayList<>())
                 .add(booking);
+        saveBookings(); // simpan pesanan baru ke bookings.xml
+        Database.logActivity(currentUser.getEmail(), "BOOKING_BARU",
+                "Booking " + booking.getId() + " - " + booking.getPaket()
+                        + " pada " + booking.getTanggalFormatted());
     }
 
     public static List<Booking> getMyBookings() {

@@ -1,7 +1,26 @@
 # Land Studio — JavaFX (versi diperbarui)
 
-Aplikasi desktop studio foto (JavaFX + FXML). Data disimpan di memori saja
-(tanpa database), cukup untuk demo / tugas kuliah.
+Aplikasi desktop studio foto (JavaFX + FXML). Data disimpan permanen ke
+**database berbasis file XML** (folder `data/`), sehingga data registrasi,
+booking, dan paket **tidak hilang** saat aplikasi ditutup.
+
+## Database XML (folder `data/`)
+Saat aplikasi pertama kali dijalankan, folder `data/` dibuat otomatis di folder
+tempat aplikasi dijalankan, berisi:
+
+| File            | Isi                                                                 |
+|-----------------|---------------------------------------------------------------------|
+| `users.xml`     | Data registrasi akun (pelanggan & admin, termasuk password).        |
+| `bookings.xml`  | Semua pesanan/booking beserta status pembayaran & konfirmasi.       |
+| `packages.xml`  | Katalog paket + harga (mengikuti perubahan yang dilakukan admin).   |
+| `activity.xml`  | Log aktivitas: registrasi, booking baru, ganti jadwal, pembatalan, dan perubahan paket oleh admin. |
+
+Cara kerjanya: `Database.java` membaca/menulis XML memakai `javax.xml` bawaan
+JDK (tanpa library tambahan). `Session` memuat users & bookings saat start dan
+menyimpannya lagi setiap ada perubahan; `PackageCatalog` memuat & menyimpan
+paket. Pada pemakaian pertama (file belum ada), data contoh awal dibuat lalu
+langsung ditulis ke XML. Menghapus folder `data/` akan mengembalikan aplikasi
+ke data contoh awal.
 
 ## Cara menjalankan (paling gampang, lewat terminal)
 Butuh **JDK 17+** dan **Maven** terpasang. Dari folder `landstudio/`:

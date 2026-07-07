@@ -175,6 +175,9 @@ public class AdminDashboardController {
         confirmBtn.setDisable(cancelled || confirmed);
         confirmBtn.setOnAction(e -> {
             booking.setStatus(Booking.BookingStatus.DIKONFIRMASI);
+            Session.saveBookings();
+            Database.logActivity(adminEmail(), "PESANAN_KONFIRMASI",
+                    "Pesanan " + booking.getId() + " dikonfirmasi");
             refresh();
         });
 
@@ -183,6 +186,9 @@ public class AdminDashboardController {
         paidBtn.setDisable(cancelled || paid);
         paidBtn.setOnAction(e -> {
             booking.setPaymentStatus(Booking.PaymentStatus.LUNAS);
+            Session.saveBookings();
+            Database.logActivity(adminEmail(), "PESANAN_LUNAS",
+                    "Pesanan " + booking.getId() + " ditandai lunas");
             refresh();
         });
 
@@ -199,6 +205,9 @@ public class AdminDashboardController {
             confirm.showAndWait().ifPresent(choice -> {
                 if (choice == ButtonType.YES) {
                     booking.setStatus(Booking.BookingStatus.DIBATALKAN);
+                    Session.saveBookings();
+                    Database.logActivity(adminEmail(), "PESANAN_BATAL",
+                            "Pesanan " + booking.getId() + " dibatalkan admin");
                     refresh();
                 }
             });
@@ -226,5 +235,10 @@ public class AdminDashboardController {
 
     private String safe(String v) {
         return (v == null || v.isBlank()) ? "-" : v;
+    }
+
+    private String adminEmail() {
+        User u = Session.getCurrentUser();
+        return u == null ? Session.ADMIN_EMAIL : u.getEmail();
     }
 }
