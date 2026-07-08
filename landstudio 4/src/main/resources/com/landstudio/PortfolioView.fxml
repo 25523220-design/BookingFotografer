@@ -86,9 +86,9 @@
                     </StackPane>
                 </HBox>
 
-                <!-- ===================== BARIS BAWAH: Wisuda + Fasilitas Studio ===================== -->
+                <!-- ===================== BARIS BAWAH: Wisuda ===================== -->
                 <HBox spacing="24">
-                    <StackPane fx:id="cardWisuda" styleClass="card, card-bg-2" prefWidth="340" maxWidth="340">
+                    <StackPane fx:id="cardWisuda" styleClass="card, card-bg-2" HBox.hgrow="ALWAYS" prefHeight="280">
                         <Region styleClass="card-overlay"/>
                         <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
                             <padding>
@@ -99,20 +99,6 @@
                                    styleClass="card-desc" wrapText="true"/>
                         </VBox>
                     </StackPane>
-                    <HBox fx:id="cardFasilitas" styleClass="facility-card" HBox.hgrow="ALWAYS">
-                        <VBox alignment="CENTER_LEFT" spacing="14" styleClass="facility-text-panel" HBox.hgrow="ALWAYS">
-                            <padding>
-                                <Insets top="28" right="30" bottom="28" left="34"/>
-                            </padding>
-                            <Label text="Fasilitas Studio Kami" styleClass="facility-title"/>
-                            <Label text="Studio berstandar internasional dengan pencahayaan tercanggih dan berbagai pilihan latar belakang editorial."
-                                   styleClass="facility-desc" wrapText="true"/>
-                            <Label text="TUR VIRTUAL STUDIO" styleClass="facility-link" onMouseClicked="#goToBooking"/>
-                        </VBox>
-                        <StackPane styleClass="facility-photo-panel" prefWidth="220" HBox.hgrow="NEVER">
-                            <Region styleClass="facility-photo-overlay"/>
-                        </StackPane>
-                    </HBox>
                 </HBox>
             </VBox>
 

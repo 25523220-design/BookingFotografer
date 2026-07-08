@@ -58,29 +58,21 @@
     -fx-background-color: #f7f5f0;
 }
 .card {
+    /* Sengaja kosong dari properti -fx-background-*: foto kartu dipasang lewat
+       Java (ImageUtil.applyCategoryBackground) agar tidak ditimpa oleh CSS. */
+}
+/* Warna gelap cadangan untuk kartu yang (karena satu dan lain hal) belum
+   mendapat foto. Dipakai eksplisit lewat styleClass "card-fallback". */
+.card-fallback {
+    -fx-background-color: #3a3a3a;
     -fx-background-radius: 2;
-    -fx-background-color: #3a3a3a; /* fallback jika foto belum ada */
 }
-/* Ganti url berikut dengan foto Anda sendiri. Taruh file di
-   src/main/resources/com/landstudio/images/ */
-.card-bg-1 {
-    -fx-background-image: url("images/pernikahan.jpg");
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
-}
-.card-bg-2 {
-    -fx-background-image: url("images/wisuda.jpg");
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
-}
-.card-bg-3 {
-    -fx-background-image: url("images/prewedding.jpg");
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-    -fx-background-repeat: no-repeat;
-}
+/* Kelas penanda kategori. Foto-nya dimuat & dipasang lewat Java (ImageUtil),
+   bukan lewat CSS, supaya dijamin terbaca oleh sistem. File foto ada di
+   src/main/resources/com/landstudio/images/. */
+.card-bg-1 { }
+.card-bg-2 { }
+.card-bg-3 { }
 .card-overlay {
     -fx-background-color: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%);
 }

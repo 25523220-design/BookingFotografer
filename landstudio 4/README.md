@@ -157,3 +157,37 @@ sama, perubahan paket oleh admin **langsung berlaku** di sisi pelanggan.
   pembayaran, `createdAt`), `PackageCatalog` (add/update/remove paket),
   `AuthController` (arahkan admin ke dashboard saat login), `SceneManager`
   (rute ke controller admin), `styles.css` (gaya header & kartu admin).
+
+---
+
+## Perubahan lanjutan (4 permintaan)
+
+1. **Dashboard pesanan admin kini LIHAT-SAJA.**
+   Tombol Konfirmasi / Tandai Lunas / Batalkan dihapus dari
+   `AdminDashboardView`. Admin hanya memantau daftar pesanan beserta status
+   pembayaran & konfirmasinya, tanpa aksi apa pun.
+
+2. **Alur paket menjadi 3 tahap.**
+   Kategori (`PaketView`) → **Daftar Tier** (`PaketTierView`, baru) yang hanya
+   menampilkan nama tier + harga (tanpa detail) → **Detail Paket**
+   (`PaketDetailView`) untuk SATU tier yang dipilih, lengkap dengan benefit dan
+   tombol booking. Halaman baru: `PaketTierController` + `PaketTierView.fxml`.
+
+3. **Bagian "Fasilitas Studio Kami" dihapus** dari halaman Portofolio; kartu
+   Wisuda kini memenuhi lebar barisnya.
+
+4. **Foto dijamin terbaca sistem.**
+   Foto kategori tidak lagi dipanggil lewat `url()` di CSS (yang kadang tidak
+   termuat), melainkan dimuat langsung dari classpath lewat Java
+   (`ImageUtil.applyCategoryBackground`) dan dipasang sebagai background "cover"
+   pada tiap kartu di Beranda, Portofolio, Paket, Daftar Tier, dan Detail Paket.
+   Selama file foto ada di `src/main/resources/com/landstudio/images/`
+   (`pernikahan.jpg`, `wisuda.jpg`, `prewedding.jpg`), foto pasti tampil.
+
+### File yang ditambah/diubah pada perubahan ini
+- **Baru:** `ImageUtil.java`, `PaketTierController.java`, `PaketTierView.fxml`.
+- **Diubah:** `AdminDashboardController` (lihat-saja), `PaketController` +
+  `PaketView.fxml` (rute ke daftar tier + foto), `PaketDetailController` +
+  `PaketDetailView.fxml` (detail satu tier), `PortfolioController` +
+  `PortfolioView.fxml` (hapus fasilitas + foto), `MainController` (foto beranda),
+  `SceneManager` (rute halaman tier), `styles.css` (background kartu via Java).

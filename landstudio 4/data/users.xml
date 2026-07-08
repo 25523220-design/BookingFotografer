@@ -10,9 +10,4 @@
     <email>budi@email.com</email>
     <password>budi123</password>
   </user>
-  <user admin="false">
-    <fullName>luqman</fullName>
-    <email>luqman@gmail.com</email>
-    <password>luqman</password>
-  </user>
 </users>

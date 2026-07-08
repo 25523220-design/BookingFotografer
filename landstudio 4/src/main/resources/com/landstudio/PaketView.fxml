@@ -53,7 +53,7 @@
                 </padding>
 
                 <!-- KATEGORI: Pernikahan -->
-                <StackPane styleClass="card, card-bg-1" prefHeight="280">
+                <StackPane fx:id="catPernikahan" styleClass="card, card-bg-1" prefHeight="280">
                     <Region styleClass="card-overlay"/>
                     <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
                         <padding>
@@ -73,7 +73,7 @@
                 </StackPane>
 
                 <!-- KATEGORI: Wisuda -->
-                <StackPane styleClass="card, card-bg-2" prefHeight="280">
+                <StackPane fx:id="catWisuda" styleClass="card, card-bg-2" prefHeight="280">
                     <Region styleClass="card-overlay"/>
                     <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
                         <padding>
@@ -93,7 +93,7 @@
                 </StackPane>
 
                 <!-- KATEGORI: Pre-Wedding -->
-                <StackPane styleClass="card, card-bg-3" prefHeight="280">
+                <StackPane fx:id="catPreWedding" styleClass="card, card-bg-3" prefHeight="280">
                     <Region styleClass="card-overlay"/>
                     <VBox alignment="BOTTOM_LEFT" styleClass="card-content">
                         <padding>

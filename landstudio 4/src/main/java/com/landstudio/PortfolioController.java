@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -19,13 +18,16 @@ public class PortfolioController {
     @FXML private StackPane cardPernikahan;
     @FXML private StackPane cardPreWedding;
     @FXML private StackPane cardWisuda;
-    @FXML private HBox cardFasilitas;
 
     @FXML
     private void initialize() {
         HeaderUtil.bindUserLabel(userNameLabel);
         pageBox.minHeightProperty().bind(rootScroll.heightProperty());
         rootScroll.addEventFilter(ScrollEvent.SCROLL, this::handlePageScroll);
+        // Pasang foto kategori (dimuat lewat Java agar dijamin terbaca).
+        ImageUtil.applyCategoryBackground(cardPernikahan, "Pernikahan");
+        ImageUtil.applyCategoryBackground(cardPreWedding, "Pre-Wedding");
+        ImageUtil.applyCategoryBackground(cardWisuda, "Wisuda");
     }
 
     private void handlePageScroll(ScrollEvent event) {
@@ -67,7 +69,6 @@ public class PortfolioController {
                 () -> clamp(scene.getHeight() * 0.30, 220, 420),
                 scene.heightProperty());
         cardWisuda.prefHeightProperty().bind(bottomRowHeight);
-        cardFasilitas.prefHeightProperty().bind(bottomRowHeight);
     }
 
     private double clamp(double value, double min, double max) {

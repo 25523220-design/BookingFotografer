@@ -31,6 +31,9 @@ public class PaketDetailController {
     @FXML private Label categorySubtitleLabel;
     @FXML private HBox pricingContainer;
 
+    /** Kategori dari tier yang sedang ditampilkan (untuk tombol kembali). */
+    private String currentCategory = "Pernikahan";
+
     @FXML
     private void initialize() {
         HeaderUtil.bindUserLabel(userNameLabel);
@@ -55,43 +58,51 @@ public class PaketDetailController {
     }
 
     /**
-     * Dipanggil SceneManager setelah halaman dimuat, untuk menentukan kategori
-     * mana yang datanya ditampilkan (Pernikahan / Wisuda / Pre-Wedding).
+     * Dipanggil SceneManager dengan LABEL tier (mis. "Pernikahan Gold") untuk
+     * menampilkan detail lengkap SATU paket yang dipilih pelanggan di halaman
+     * daftar tier.
      */
-    public void setCategory(String category) {
-        categoryTitleLabel.setText(category);
+    public void setTier(String tierLabel) {
+        PackageCatalog.Tier tier = PackageCatalog.byLabel(tierLabel);
         pricingContainer.getChildren().clear();
-        heroPane.getStyleClass().removeAll("card-bg-1", "card-bg-2", "card-bg-3");
 
-        switch (category) {
+        if (tier == null) {
+            // Data tier tidak ditemukan (mis. sudah dihapus admin) -> kembali aman.
+            categoryTitleLabel.setText(tierLabel == null ? "Paket" : tierLabel);
+            categorySubtitleLabel.setText("Paket tidak ditemukan. Silakan kembali dan pilih paket lain.");
+            return;
+        }
+
+        currentCategory = tier.category();
+        // Foto kategori (dimuat lewat Java agar dijamin terbaca).
+        ImageUtil.applyCategoryBackground(heroPane, tier.category());
+        categoryTitleLabel.setText(tier.label());
+
+        switch (tier.category()) {
             case "Wisuda" -> {
-                heroPane.getStyleClass().add("card-bg-2");
                 categoryNumberLabel.setText("02");
                 categorySubtitleLabel.setText(
                         "Mendokumentasikan puncak pencapaian akademik dengan gaya yang elegan dan berkesan.");
             }
             case "Pre-Wedding" -> {
-                heroPane.getStyleClass().add("card-bg-3");
                 categoryNumberLabel.setText("03");
                 categorySubtitleLabel.setText(
                         "Narasi intim yang ditangkap dalam momen tenang sebelum perayaan agung.");
             }
             default -> { // Pernikahan
-                heroPane.getStyleClass().add("card-bg-1");
                 categoryNumberLabel.setText("01");
                 categorySubtitleLabel.setText(
                         "Menangkap simfoni emosi dalam penyatuan paling sakral Anda dengan kualitas sinematik yang abadi.");
             }
         }
 
-        for (PackageCatalog.Tier tier : PackageCatalog.tiersFor(category)) {
-            pricingContainer.getChildren().add(buildPriceCard(tier));
-        }
+        pricingContainer.getChildren().add(buildPriceCard(tier));
     }
 
     private VBox buildPriceCard(PackageCatalog.Tier tier) {
         VBox card = new VBox(16);
         card.getStyleClass().add("price-card");
+        card.setMaxWidth(460);
         if (tier.highlighted()) {
             card.getStyleClass().add("price-card-highlight");
         }
@@ -164,5 +175,11 @@ public class PaketDetailController {
     @FXML
     private void goToPaket() {
         SceneManager.switchTo("PaketView.fxml");
+    }
+
+    /** Tombol "Kembali" pada halaman detail: kembali ke daftar tier kategori ini. */
+    @FXML
+    private void goBackToTier() {
+        SceneManager.switchTo("PaketTierView.fxml", currentCategory);
     }
 }

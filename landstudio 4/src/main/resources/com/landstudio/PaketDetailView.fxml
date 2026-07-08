@@ -55,7 +55,7 @@
                 <padding>
                     <Insets top="24" right="60" bottom="0" left="60"/>
                 </padding>
-                <Label text="&#8592;  Kembali ke Paket" styleClass="back-link" onMouseClicked="#goToPaket"/>
+                <Label text="&#8592;  Kembali ke Daftar Tier" styleClass="back-link" onMouseClicked="#goBackToTier"/>
             </HBox>
 
             <!-- ===================== JUDUL DAFTAR HARGA ===================== -->
@@ -63,8 +63,8 @@
                 <padding>
                     <Insets top="20" right="60" bottom="16" left="60"/>
                 </padding>
-                <Label text="Pilih Paket yang Sesuai" styleClass="page-title"/>
-                <Label text="Setiap paket menampilkan harga dan benefit yang Anda dapatkan. Tekan tombol untuk langsung booking paket tersebut."
+                <Label text="Detail Paket" styleClass="page-title"/>
+                <Label text="Rincian harga dan benefit paket yang Anda pilih. Tekan tombol untuk langsung booking paket ini."
                        styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
             </VBox>
 

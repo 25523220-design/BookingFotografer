@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <activities>
-    
-  <activity time="2026-07-07T23:02:51.234888500">
-        
-    <actor>luqman@gmail.com</actor>
-        
-    <action>REGISTRASI</action>
-        
-    <detail>Akun baru terdaftar: luqman (luqman@gmail.com)</detail>
-      
-  </activity>
-  
-  <activity time="2026-07-07T23:11:49.329922">
-    <actor>admin@landstudio.com</actor>
-    <action>PAKET_UBAH</action>
-    <detail>Mengubah paket "Pernikahan Silver" menjadi "Pernikahan Silver" (Rp 4.000.000)</detail>
+  <activity time="2026-07-08T10:45:19.743848900">
+    <actor>budi@email.com</actor>
+    <action>BOOKING_BARU</action>
+    <detail>Booking LS-0003 - Wisuda Silver pada Kamis, 23 Juli 2026</detail>
   </activity>
 </activities>

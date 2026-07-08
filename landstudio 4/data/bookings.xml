@@ -7,13 +7,13 @@
     <telepon>081234567890</telepon>
     <alamat>Jl. Melati No. 10, Yogyakarta</alamat>
     <paket>Pernikahan Gold</paket>
-    <tanggal>2026-07-14</tanggal>
+    <tanggal>2026-07-15</tanggal>
     <jam>09:00</jam>
     <catatan/>
     <metodePembayaran>Transfer Bank</metodePembayaran>
     <paymentStatus>MENUNGGU_KONFIRMASI</paymentStatus>
     <status>MENUNGGU_KONFIRMASI</status>
-    <createdAt>2026-07-07T23:02:34.533309800</createdAt>
+    <createdAt>2026-07-08T10:43:43.443595</createdAt>
   </booking>
   <booking id="LS-0002">
     <ownerEmail>budi@email.com</ownerEmail>
@@ -22,12 +22,27 @@
     <telepon>081234567890</telepon>
     <alamat>Jl. Melati No. 10, Yogyakarta</alamat>
     <paket>Wisuda Premium</paket>
-    <tanggal>2026-07-21</tanggal>
+    <tanggal>2026-07-22</tanggal>
     <jam>13:00</jam>
     <catatan/>
     <metodePembayaran>QRIS</metodePembayaran>
     <paymentStatus>LUNAS</paymentStatus>
     <status>DIKONFIRMASI</status>
-    <createdAt>2026-07-07T23:02:34.534309600</createdAt>
+    <createdAt>2026-07-08T10:43:43.445574500</createdAt>
+  </booking>
+  <booking id="LS-0003">
+    <ownerEmail>budi@email.com</ownerEmail>
+    <namaPelanggan>Budi Santoso</namaPelanggan>
+    <email>budi@email.com</email>
+    <telepon>9909</telepon>
+    <alamat>koko</alamat>
+    <paket>Wisuda Silver</paket>
+    <tanggal>2026-07-23</tanggal>
+    <jam>08:00 - 10:00</jam>
+    <catatan/>
+    <metodePembayaran>QRIS</metodePembayaran>
+    <paymentStatus>LUNAS</paymentStatus>
+    <status>DIKONFIRMASI</status>
+    <createdAt>2026-07-08T10:45:17.948804900</createdAt>
   </booking>
 </bookings>

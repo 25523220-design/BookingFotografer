@@ -36,6 +36,10 @@ public class MainController {
         HeaderUtil.bindUserLabel(userNameLabel);
         pageBox.minHeightProperty().bind(rootScroll.heightProperty());
         rootScroll.addEventFilter(ScrollEvent.SCROLL, this::handlePageScroll);
+        // Pasang foto kategori (dimuat lewat Java agar dijamin terbaca).
+        ImageUtil.applyCategoryBackground(card1, "Pernikahan");
+        ImageUtil.applyCategoryBackground(card2, "Wisuda");
+        ImageUtil.applyCategoryBackground(card3, "Pre-Wedding");
         buildMyOrdersSection();
     }
 

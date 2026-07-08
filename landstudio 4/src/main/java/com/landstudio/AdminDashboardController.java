@@ -5,9 +5,6 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ScrollEvent;
@@ -157,71 +154,19 @@ public class AdminDashboardController {
 
         topRow.getChildren().addAll(infoBox, statusBox);
 
-        Region divider = new Region();
-        divider.getStyleClass().add("form-divider");
-        divider.setMinHeight(1);
-        divider.setMaxHeight(1);
+        // Dashboard admin bersifat LIHAT-SAJA: admin hanya memantau pesanan,
+        // tidak perlu mengonfirmasi / menandai lunas / membatalkan.
+        card.getChildren().add(topRow);
 
-        // --- Baris aksi admin ---
-        HBox actions = new HBox(12);
-        actions.setAlignment(Pos.CENTER_RIGHT);
-
-        boolean cancelled = booking.getStatus() == Booking.BookingStatus.DIBATALKAN;
-        boolean confirmed = booking.getStatus() == Booking.BookingStatus.DIKONFIRMASI;
-        boolean paid = booking.getPaymentStatus() == Booking.PaymentStatus.LUNAS;
-
-        Button confirmBtn = new Button("KONFIRMASI");
-        confirmBtn.getStyleClass().add("btn-gold");
-        confirmBtn.setDisable(cancelled || confirmed);
-        confirmBtn.setOnAction(e -> {
-            booking.setStatus(Booking.BookingStatus.DIKONFIRMASI);
-            Session.saveBookings();
-            Database.logActivity(adminEmail(), "PESANAN_KONFIRMASI",
-                    "Pesanan " + booking.getId() + " dikonfirmasi");
-            refresh();
-        });
-
-        Button paidBtn = new Button("TANDAI LUNAS");
-        paidBtn.getStyleClass().add("btn-outline-dark");
-        paidBtn.setDisable(cancelled || paid);
-        paidBtn.setOnAction(e -> {
-            booking.setPaymentStatus(Booking.PaymentStatus.LUNAS);
-            Session.saveBookings();
-            Database.logActivity(adminEmail(), "PESANAN_LUNAS",
-                    "Pesanan " + booking.getId() + " ditandai lunas");
-            refresh();
-        });
-
-        Button cancelBtn = new Button("BATALKAN");
-        cancelBtn.getStyleClass().add("btn-danger-outline");
-        cancelBtn.setDisable(cancelled);
-        cancelBtn.setOnAction(e -> {
-            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Batalkan pesanan " + booking.getId() + " dari "
-                            + safe(booking.getNamaPelanggan()) + "?",
-                    ButtonType.YES, ButtonType.NO);
-            confirm.setHeaderText(null);
-            confirm.setTitle("Batalkan Pesanan");
-            confirm.showAndWait().ifPresent(choice -> {
-                if (choice == ButtonType.YES) {
-                    booking.setStatus(Booking.BookingStatus.DIBATALKAN);
-                    Session.saveBookings();
-                    Database.logActivity(adminEmail(), "PESANAN_BATAL",
-                            "Pesanan " + booking.getId() + " dibatalkan admin");
-                    refresh();
-                }
-            });
-        });
-
-        if (cancelled) {
+        if (booking.getStatus() == Booking.BookingStatus.DIBATALKAN) {
+            Region divider = new Region();
+            divider.getStyleClass().add("form-divider");
+            divider.setMinHeight(1);
+            divider.setMaxHeight(1);
             Label note = new Label("Pesanan ini telah dibatalkan.");
             note.getStyleClass().add("order-detail");
-            actions.getChildren().add(note);
-        } else {
-            actions.getChildren().addAll(confirmBtn, paidBtn, cancelBtn);
+            card.getChildren().addAll(divider, note);
         }
-
-        card.getChildren().addAll(topRow, divider, actions);
         return card;
     }
 
@@ -235,10 +180,5 @@ public class AdminDashboardController {
 
     private String safe(String v) {
         return (v == null || v.isBlank()) ? "-" : v;
-    }
-
-    private String adminEmail() {
-        User u = Session.getCurrentUser();
-        return u == null ? Session.ADMIN_EMAIL : u.getEmail();
     }
 }

@@ -10,7 +10,7 @@
 
 <ScrollPane fx:id="rootScroll" fitToWidth="true" fitToHeight="false" styleClass="root-scroll" stylesheets="@styles.css"
             xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.landstudio.PaketDetailController">
+            fx:controller="com.landstudio.PaketTierController">
     <content>
         <VBox fx:id="pageBox" styleClass="page">
 
@@ -45,7 +45,7 @@
                     <Label fx:id="categoryNumberLabel" text="01" styleClass="card-number"/>
                     <Label fx:id="categoryTitleLabel" text="Pernikahan" styleClass="card-title"/>
                     <Label fx:id="categorySubtitleLabel"
-                           text="Menangkap simfoni emosi dalam penyatuan paling sakral Anda dengan kualitas sinematik yang abadi."
+                           text="Pilih salah satu tier paket untuk melihat rincian lengkapnya."
                            styleClass="card-desc" wrapText="true"/>
                 </VBox>
             </StackPane>
@@ -55,25 +55,25 @@
                 <padding>
                     <Insets top="24" right="60" bottom="0" left="60"/>
                 </padding>
-                <Label text="&#8592;  Kembali ke Daftar Tier" styleClass="back-link" onMouseClicked="#goBackToTier"/>
+                <Label text="&#8592;  Kembali ke Kategori" styleClass="back-link" onMouseClicked="#goToPaket"/>
             </HBox>
 
-            <!-- ===================== JUDUL DAFTAR HARGA ===================== -->
+            <!-- ===================== JUDUL ===================== -->
             <VBox alignment="CENTER" spacing="10" styleClass="content-section">
                 <padding>
-                    <Insets top="20" right="60" bottom="16" left="60"/>
+                    <Insets top="20" right="60" bottom="8" left="60"/>
                 </padding>
-                <Label text="Detail Paket" styleClass="page-title"/>
-                <Label text="Rincian harga dan benefit paket yang Anda pilih. Tekan tombol untuk langsung booking paket ini."
+                <Label text="Pilih Tier Paket" styleClass="page-title"/>
+                <Label text="Tekan LIHAT DETAIL untuk melihat harga lengkap, benefit, dan tombol booking."
                        styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
             </VBox>
 
-            <!-- ===================== DAFTAR HARGA (diisi dinamis lewat Java) ===================== -->
+            <!-- ===================== DAFTAR TIER (diisi lewat Java) ===================== -->
             <VBox alignment="CENTER" styleClass="content-section">
                 <padding>
                     <Insets top="12" right="60" bottom="70" left="60"/>
                 </padding>
-                <HBox fx:id="pricingContainer" spacing="24" alignment="TOP_CENTER"/>
+                <VBox fx:id="tierListContainer" spacing="16" maxWidth="720"/>
             </VBox>
 
             <!-- ===================== FOOTER ===================== -->

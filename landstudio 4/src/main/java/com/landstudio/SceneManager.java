@@ -46,10 +46,15 @@ public final class SceneManager {
                 bc.bindResponsiveSizing(scene);
             } else if (controller instanceof PaketController pkc) {
                 pkc.bindResponsiveSizing(scene);
+            } else if (controller instanceof PaketTierController ptc) {
+                ptc.bindResponsiveSizing(scene);
+                if (param != null) {
+                    ptc.setCategory(param);
+                }
             } else if (controller instanceof PaketDetailController pdc) {
                 pdc.bindResponsiveSizing(scene);
                 if (param != null) {
-                    pdc.setCategory(param);
+                    pdc.setTier(param);
                 }
             } else if (controller instanceof AuthController ac) {
                 ac.bindResponsiveSizing(scene);

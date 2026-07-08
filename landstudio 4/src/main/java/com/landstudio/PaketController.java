@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -17,12 +18,19 @@ public class PaketController {
     @FXML private ScrollPane rootScroll;
     @FXML private VBox pageBox;
     @FXML private Label userNameLabel;
+    @FXML private StackPane catPernikahan;
+    @FXML private StackPane catWisuda;
+    @FXML private StackPane catPreWedding;
 
     @FXML
     private void initialize() {
         HeaderUtil.bindUserLabel(userNameLabel);
         pageBox.minHeightProperty().bind(rootScroll.heightProperty());
         rootScroll.addEventFilter(ScrollEvent.SCROLL, this::handlePageScroll);
+        // Pasang foto kategori (dimuat lewat Java agar dijamin terbaca).
+        ImageUtil.applyCategoryBackground(catPernikahan, "Pernikahan");
+        ImageUtil.applyCategoryBackground(catWisuda, "Wisuda");
+        ImageUtil.applyCategoryBackground(catPreWedding, "Pre-Wedding");
     }
 
     private void handlePageScroll(ScrollEvent event) {
@@ -59,16 +67,16 @@ public class PaketController {
 
     @FXML
     private void openPernikahan() {
-        SceneManager.switchTo("PaketDetailView.fxml", "Pernikahan");
+        SceneManager.switchTo("PaketTierView.fxml", "Pernikahan");
     }
 
     @FXML
     private void openWisuda() {
-        SceneManager.switchTo("PaketDetailView.fxml", "Wisuda");
+        SceneManager.switchTo("PaketTierView.fxml", "Wisuda");
     }
 
     @FXML
     private void openPreWedding() {
-        SceneManager.switchTo("PaketDetailView.fxml", "Pre-Wedding");
+        SceneManager.switchTo("PaketTierView.fxml", "Pre-Wedding");
     }
 }
