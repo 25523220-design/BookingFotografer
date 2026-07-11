@@ -43,7 +43,7 @@
                 </padding>
                 <Label text="Paket Layanan" styleClass="page-title"/>
                 <Label text="Pilih kategori sesi foto untuk melihat rincian paket dan harga."
-                       styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
+                       styleClass="page-subtitle" wrapText="true" textAlignment="CENTER" alignment="CENTER"/>
             </VBox>
 
             <!-- ===================== KATEGORI PAKET (A / B / C) ===================== -->

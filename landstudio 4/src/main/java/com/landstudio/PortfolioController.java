@@ -58,6 +58,23 @@ public class PortfolioController {
         SceneManager.switchTo("PaketView.fxml");
     }
 
+    // Tombol "DETAIL PAKET" pada tiap kartu -> langsung ke halaman pilih tier
+    // kategori yang bersangkutan.
+    @FXML
+    private void openTierPernikahan() {
+        SceneManager.switchTo("PaketTierView.fxml", "Pernikahan");
+    }
+
+    @FXML
+    private void openTierWisuda() {
+        SceneManager.switchTo("PaketTierView.fxml", "Wisuda");
+    }
+
+    @FXML
+    private void openTierPreWedding() {
+        SceneManager.switchTo("PaketTierView.fxml", "Pre-Wedding");
+    }
+
     public void bindResponsiveSizing(Scene scene) {
         NumberBinding topRowHeight = Bindings.createDoubleBinding(
                 () -> clamp(scene.getHeight() * 0.34, 240, 480),

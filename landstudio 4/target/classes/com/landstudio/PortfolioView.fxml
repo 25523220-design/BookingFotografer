@@ -43,7 +43,7 @@
                 </padding>
                 <Label text="Portofolio Kami" styleClass="page-title"/>
                 <Label text="Kumpulan momen yang telah kami abadikan untuk klien kami."
-                       styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
+                       styleClass="page-subtitle" wrapText="true" textAlignment="CENTER" alignment="CENTER"/>
             </VBox>
 
             <!-- ===================== BARIS ATAS: Pernikahan + Pre-Wedding ===================== -->
@@ -64,7 +64,7 @@
                                 <padding>
                                     <Insets top="12"/>
                                 </padding>
-                                <Button text="PELAJARI LEBIH LANJUT" styleClass="btn-outline" onAction="#goToBooking"/>
+                                <Button text="DETAIL PAKET" styleClass="btn-outline" onAction="#openTierPernikahan"/>
                             </HBox>
                         </VBox>
                     </StackPane>
@@ -80,7 +80,7 @@
                                 <padding>
                                     <Insets top="12"/>
                                 </padding>
-                                <Button text="DETAIL PAKET" styleClass="btn-outline" onAction="#goToPaket"/>
+                                <Button text="DETAIL PAKET" styleClass="btn-outline" onAction="#openTierPreWedding"/>
                             </HBox>
                         </VBox>
                     </StackPane>
@@ -97,6 +97,12 @@
                             <Label text="Wisuda" styleClass="card-title-sm"/>
                             <Label text="Rayakan pencapaian akademik Anda dengan penuh gaya."
                                    styleClass="card-desc" wrapText="true"/>
+                            <HBox>
+                                <padding>
+                                    <Insets top="12"/>
+                                </padding>
+                                <Button text="DETAIL PAKET" styleClass="btn-outline" onAction="#openTierWisuda"/>
+                            </HBox>
                         </VBox>
                     </StackPane>
                 </HBox>
