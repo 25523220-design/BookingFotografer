@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="rootScroll" fitToWidth="true" fitToHeight="false" styleClass="root-scroll" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.landstudio.BookingController">
+    <content>
+        <VBox fx:id="pageBox" styleClass="page">
+
+            <!-- ===================== HEADER ===================== -->
+            <HBox styleClass="header" alignment="CENTER_LEFT" spacing="0">
+                <padding>
+                    <Insets top="18" right="60" bottom="18" left="60"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="logo"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox alignment="CENTER" spacing="36" styleClass="nav">
+                    <Label text="BERANDA" styleClass="nav-item" onMouseClicked="#goToBeranda"/>
+                    <Label text="PORTOFOLIO" styleClass="nav-item" onMouseClicked="#goToPortfolio"/>
+                    <VBox alignment="CENTER" spacing="4">
+                        <Label text="BOOKING" styleClass="nav-item, nav-active"/>
+                        <Region styleClass="nav-underline"/>
+                    </VBox>
+                    <Label text="PAKET" styleClass="nav-item" onMouseClicked="#goToPaket"/>
+                </HBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="userNameLabel" text="MASUK / DAFTAR" styleClass="user-name"/>
+            </HBox>
+            <Region styleClass="header-divider" minHeight="1" maxHeight="1"/>
+
+            <!-- ===================== JUDUL HALAMAN ===================== -->
+            <VBox alignment="CENTER" spacing="10" styleClass="content-section">
+                <padding>
+                    <Insets top="56" right="60" bottom="16" left="60"/>
+                </padding>
+                <Label text="Booking Sesi Foto" styleClass="page-title"/>
+                <Label text="Lengkapi data diri dan jadwal Anda, tim kami akan segera menghubungi untuk konfirmasi."
+                       styleClass="page-subtitle" wrapText="true" textAlignment="CENTER"/>
+            </VBox>
+
+            <!-- ===================== FORM BOOKING ===================== -->
+            <VBox alignment="CENTER" styleClass="content-section">
+                <padding>
+                    <Insets top="12" right="60" bottom="70" left="60"/>
+                </padding>
+                <VBox styleClass="booking-card" spacing="28" maxWidth="760">
+
+                    <!-- === SECTION: DATA DIRI === -->
+                    <VBox spacing="18">
+                        <Label text="DATA DIRI" styleClass="form-section-title"/>
+                        <GridPane hgap="24" vgap="18">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+                            <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <Label text="Nama Lengkap" styleClass="form-label"/>
+                                <TextField fx:id="namaField" promptText="Masukkan nama lengkap Anda" styleClass="form-input"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                <Label text="No. Telepon / WhatsApp" styleClass="form-label"/>
+                                <TextField fx:id="teleponField" promptText="Contoh: 0812xxxxxxx" styleClass="form-input"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                                <Label text="Email" styleClass="form-label"/>
+                                <TextField fx:id="emailField" promptText="nama@email.com" styleClass="form-input"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2">
+                                <Label text="Alamat" styleClass="form-label"/>
+                                <TextArea fx:id="alamatField" promptText="Masukkan alamat lengkap Anda"
+                                          styleClass="form-input, form-textarea" wrapText="true" prefRowCount="2"/>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+
+                    <Region styleClass="form-divider" minHeight="1" maxHeight="1"/>
+
+                    <!-- === SECTION: JADWAL SESI === -->
+                    <VBox spacing="18">
+                        <Label text="JADWAL SESI FOTO" styleClass="form-section-title"/>
+                        <GridPane hgap="24" vgap="18">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+                            <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <Label text="Pilih Paket" styleClass="form-label"/>
+                                <ChoiceBox fx:id="paketChoice" styleClass="form-input, form-choice" maxWidth="Infinity"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                                <Label text="Jam Sesi" styleClass="form-label"/>
+                                <ChoiceBox fx:id="jamChoice" styleClass="form-input, form-choice" maxWidth="Infinity"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                                <Label text="Tanggal Sesi" styleClass="form-label"/>
+                                <DatePicker fx:id="tanggalPicker" promptText="Pilih tanggal" styleClass="form-input, form-date" maxWidth="Infinity"/>
+                            </VBox>
+                            <VBox spacing="6" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                                <Label text="Estimasi Harga Paket" styleClass="form-label"/>
+                                <Label fx:id="totalPriceLabel" text="-" styleClass="price-value"/>
+                            </VBox>
+                        </GridPane>
+                        <Label text="Catatan: tanggal yang sudah dibooking pelanggan lain otomatis dinonaktifkan pada kalender."
+                               styleClass="page-subtitle" wrapText="true"/>
+
+                        <VBox spacing="6">
+                            <Label text="Catatan Tambahan (opsional)" styleClass="form-label"/>
+                            <TextArea fx:id="catatanField" promptText="Tuliskan permintaan khusus, lokasi, atau detail lainnya"
+                                      styleClass="form-input, form-textarea" wrapText="true" prefRowCount="2"/>
+                        </VBox>
+                    </VBox>
+
+                    <Label fx:id="statusLabel" styleClass="form-status" wrapText="true"/>
+
+                    <HBox alignment="CENTER">
+                        <Button fx:id="submitButton" text="AJUKAN BOOKING" styleClass="btn-gold" onAction="#handleSubmit"/>
+                    </HBox>
+
+                </VBox>
+            </VBox>
+
+            <!-- ===================== FOOTER ===================== -->
+            <VBox styleClass="footer" alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets top="50" bottom="50"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="footer-logo"/>
+                <Label text="© 2026 TEMAN STUDIO. Seluruh hak cipta dilindungi undang-undang." styleClass="footer-text"/>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>
