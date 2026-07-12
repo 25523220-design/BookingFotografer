@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="rootScroll" fitToWidth="true" fitToHeight="true" styleClass="root-scroll" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.landstudio.RescheduleController">
+    <content>
+        <VBox fx:id="pageBox" styleClass="page" alignment="CENTER">
+
+            <VBox alignment="CENTER" spacing="8" styleClass="content-section">
+                <padding>
+                    <Insets top="26" bottom="10"/>
+                </padding>
+                <Label text="LAND STUDIO" styleClass="logo"/>
+                <Label text="&#8592;  Batal, Kembali ke Beranda" styleClass="back-link" onMouseClicked="#handleCancel"/>
+            </VBox>
+
+            <VBox alignment="CENTER" styleClass="content-section" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets top="10" bottom="60"/>
+                </padding>
+                <VBox styleClass="booking-card" spacing="22" maxWidth="480">
+                    <Label text="Ganti Jadwal Sesi" styleClass="auth-title"/>
+                    <Label fx:id="infoLabel" text="-" styleClass="page-subtitle" wrapText="true"/>
+                    <Region styleClass="form-divider" minHeight="1" maxHeight="1"/>
+                    <VBox spacing="6">
+                        <Label text="Tanggal Sesi Baru" styleClass="form-label"/>
+                        <DatePicker fx:id="tanggalPicker" promptText="Pilih tanggal" styleClass="form-input, form-date" maxWidth="Infinity"/>
+                    </VBox>
+                    <VBox spacing="6">
+                        <Label text="Jam Sesi Baru" styleClass="form-label"/>
+                        <ChoiceBox fx:id="jamChoice" styleClass="form-input, form-choice" maxWidth="Infinity"/>
+                    </VBox>
+                    <Label fx:id="statusLabel" styleClass="form-status" wrapText="true"/>
+                    <HBox spacing="14" alignment="CENTER">
+                        <Button text="BATAL" styleClass="btn-outline-dark" onAction="#handleCancel"/>
+                        <Button text="SIMPAN PERUBAHAN" styleClass="btn-gold" onAction="#handleSave"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>

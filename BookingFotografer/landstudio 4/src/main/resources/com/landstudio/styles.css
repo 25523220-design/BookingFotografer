@@ -1,0 +1,664 @@
+/* ===== Palette =====
+   Background cream : #f7f5f0
+   Section gray     : #f0eee9
+   Dark text        : #1a1a1a
+   Gray text        : #6b6b6b
+   Gold accent      : #b8935a
+   Black CTA        : #141210
+   =================================================== */
+
+.root-scroll {
+    -fx-background-color: #f7f5f0;
+    -fx-background: #f7f5f0;
+}
+.root-scroll > .viewport {
+    -fx-background-color: #f7f5f0;
+}
+.page {
+    -fx-background-color: #f7f5f0;
+}
+
+/* ---------- Header ---------- */
+.header {
+    -fx-background-color: #f7f5f0;
+}
+.logo {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
+.nav-item {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6b6b6b;
+    -fx-cursor: hand;
+}
+.nav-active {
+    -fx-text-fill: #1a1a1a;
+}
+.nav-underline {
+    -fx-background-color: #1a1a1a;
+    -fx-pref-height: 2;
+    -fx-max-height: 2;
+    -fx-pref-width: 60;
+}
+.user-name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+    -fx-cursor: hand;
+}
+.header-divider {
+    -fx-background-color: #dddad3;
+}
+
+/* ---------- Sidebar kiri (navigasi vertikal) ---------- */
+.page-shell {
+    -fx-background-color: #f7f5f0;
+}
+.page-main {
+    -fx-background-color: #f7f5f0;
+}
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e2ded5;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 220;
+    -fx-pref-width: 232;
+    -fx-max-width: 232;
+}
+.nav-vertical {
+    -fx-fill-width: true;
+    -fx-background-color: #141210;
+    -fx-background-radius: 4;
+    -fx-padding: 16 14 16 14;
+}
+.nav-vertical .nav-item {
+    -fx-font-size: 13px;
+    -fx-padding: 4 0 4 10;
+    -fx-text-fill: #bdbab3;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 3;
+}
+.nav-vertical .nav-item:hover {
+    -fx-text-fill: #ffffff;
+}
+.nav-vertical .nav-active {
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #b8935a;
+    -fx-border-width: 0 0 0 3;
+}
+
+/* ---------- Portfolio Cards ---------- */
+.content-section {
+    -fx-background-color: #f7f5f0;
+}
+.card {
+    /* Sengaja kosong dari properti -fx-background-*: foto kartu dipasang lewat
+       Java (ImageUtil.applyCategoryBackground) agar tidak ditimpa oleh CSS. */
+}
+/* Warna gelap cadangan untuk kartu yang (karena satu dan lain hal) belum
+   mendapat foto. Dipakai eksplisit lewat styleClass "card-fallback". */
+.card-fallback {
+    -fx-background-color: #3a3a3a;
+    -fx-background-radius: 2;
+}
+/* Kelas penanda kategori. Foto-nya dimuat & dipasang lewat Java (ImageUtil),
+   bukan lewat CSS, supaya dijamin terbaca oleh sistem. File foto ada di
+   src/main/resources/com/landstudio/images/. */
+.card-bg-1 { }
+.card-bg-2 { }
+.card-bg-3 { }
+.card-overlay {
+    -fx-background-color: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%);
+}
+.card-content {
+    -fx-max-width: 420;
+}
+.card-number {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #d8b877;
+}
+.card-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 4 0 6 0;
+}
+.card-desc {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #e7e5e0;
+    -fx-max-width: 380;
+}
+
+/* ---------- Quote Section ---------- */
+.quote-section {
+    -fx-background-color: #efece6;
+}
+.quote-mark {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 46px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
+.quote-text {
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+    -fx-font-size: 26px;
+    -fx-text-fill: #2a2a2a;
+    -fx-text-alignment: center;
+    -fx-max-width: 720;
+}
+.quote-author {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6b6b6b;
+}
+
+/* ---------- CTA Section ---------- */
+.cta-section {
+    -fx-background-color: #141210;
+}
+.cta-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 34px;
+    -fx-text-fill: #ffffff;
+}
+.cta-subtitle {
+    -fx-font-size: 13.5px;
+    -fx-text-fill: #bdbab3;
+    -fx-max-width: 620;
+    -fx-text-alignment: center;
+}
+
+/* ---------- Buttons ---------- */
+.btn-gold {
+    -fx-background-color: #b8935a;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 26 12 26;
+    -fx-background-radius: 2;
+    -fx-cursor: hand;
+}
+.btn-gold:hover {
+    -fx-background-color: #a6824c;
+}
+.btn-outline {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 26 12 26;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
+}
+.btn-outline:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+.btn-outline-dark {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #1a1a1a;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 26 12 26;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
+}
+.btn-outline-dark:hover {
+    -fx-background-color: rgba(0,0,0,0.05);
+}
+
+/* ---------- Page titles ---------- */
+.page-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.page-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6b6b6b;
+    -fx-max-width: 560;
+}
+.page-title-sm {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+/* ---------- Paket Detail: Pricing Cards ---------- */
+.back-link {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #6b6b6b;
+    -fx-cursor: hand;
+}
+.back-link:hover {
+    -fx-text-fill: #1a1a1a;
+}
+.price-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 32 28 28 28;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 20, 0, 0, 5);
+    -fx-pref-width: 280;
+    -fx-max-width: 320;
+}
+.price-card-highlight {
+    -fx-border-color: #b8935a;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+}
+.price-badge {
+    -fx-background-color: #b8935a;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 10 4 10;
+    -fx-background-radius: 20;
+}
+.price-tier {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.price-value {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
+.price-period {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9a9790;
+}
+.price-divider {
+    -fx-background-color: #ece9e2;
+}
+.price-feature {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #3a3a3a;
+    -fx-max-width: 250;
+}
+
+/* ---------- Booking Page: Form Card ---------- */
+.booking-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 24, 0, 0, 6);
+}
+.form-section-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
+.form-divider {
+    -fx-background-color: #ece9e2;
+}
+.form-label {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.form-input {
+    -fx-background-color: #f7f5f0;
+    -fx-background-radius: 3;
+    -fx-border-color: #ddd9d0;
+    -fx-border-radius: 3;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1a1a1a;
+    -fx-padding: 9 12 9 12;
+}
+.form-input:focused {
+    -fx-border-color: #b8935a;
+}
+.form-textarea .content {
+    -fx-background-color: #f7f5f0;
+    -fx-background-radius: 3;
+}
+.form-textarea {
+    -fx-background-color: transparent;
+}
+.form-choice {
+    -fx-padding: 2 8 2 8;
+}
+.form-choice .label {
+    -fx-text-fill: #1a1a1a;
+    -fx-font-size: 13px;
+}
+.form-date .arrow-button {
+    -fx-background-color: transparent;
+}
+.form-date > .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+.form-status {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+}
+.form-status-success {
+    -fx-text-fill: #4a7c59;
+}
+.form-status-error {
+    -fx-text-fill: #b3453f;
+}
+
+/* Tanggal yang sudah dibooking (dinonaktifkan di kalender) */
+.date-booked {
+    -fx-background-color: #f0d9d7;
+}
+.date-booked > .text {
+    -fx-fill: #b3453f;
+}
+
+/* ---------- Portfolio Page: badge tag & kartu kecil ---------- */
+.badge-tag {
+    -fx-background-color: rgba(255,255,255,0.16);
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 12 5 12;
+    -fx-background-radius: 20;
+}
+.card-title-sm {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 4 0 6 0;
+}
+
+/* ---------- Portfolio Page: kartu "Fasilitas Studio Kami" ---------- */
+.facility-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 16, 0, 0, 4);
+}
+.facility-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.facility-desc {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6b6b6b;
+    -fx-max-width: 320;
+}
+.facility-link {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+.facility-link:hover {
+    -fx-text-fill: #b8935a;
+}
+.facility-photo-panel {
+    -fx-background-color: linear-gradient(to bottom right, #2a2a2a, #0d0d0d);
+    -fx-background-radius: 0 2 2 0;
+}
+.facility-photo-overlay {
+    -fx-background-color: transparent;
+}
+
+/* ---------- Auth Page (Masuk/Daftar) ---------- */
+.auth-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 24, 0, 0, 6);
+}
+.auth-tabs {
+    -fx-padding: 0 0 4 0;
+}
+.auth-tab {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9a9790;
+    -fx-cursor: hand;
+    -fx-padding: 4 0 4 0;
+}
+.auth-tab-active {
+    -fx-text-fill: #1a1a1a;
+    -fx-border-color: #b8935a;
+    -fx-border-width: 0 0 2 0;
+}
+.auth-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.auth-link {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+    -fx-cursor: hand;
+    -fx-underline: true;
+}
+.auth-link:hover {
+    -fx-text-fill: #8f6d3f;
+}
+
+/* ---------- Payment Page (QRIS / Transfer) ---------- */
+.payment-tab {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9a9790;
+    -fx-cursor: hand;
+    -fx-padding: 8 20 8 20;
+    -fx-background-color: #f7f5f0;
+    -fx-background-radius: 20;
+}
+.payment-tab-active {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #1a1a1a;
+}
+.payment-panel {
+    -fx-padding: 10 0 0 0;
+}
+.qr-box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ddd9d0;
+    -fx-border-width: 1;
+    -fx-padding: 16;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+}
+.bank-row {
+    -fx-background-color: #f7f5f0;
+    -fx-background-radius: 4;
+    -fx-padding: 12 16 12 16;
+}
+.success-icon {
+    -fx-font-size: 46px;
+    -fx-text-fill: #4a7c59;
+    -fx-font-weight: bold;
+}
+
+/* ---------- Beranda: Pesanan Saya ---------- */
+.order-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 22 26 22 26;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 16, 0, 0, 4);
+}
+.order-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.order-detail {
+    -fx-font-size: 12.5px;
+    -fx-text-fill: #6b6b6b;
+}
+.order-status-pill {
+    -fx-font-size: 10.5px;
+    -fx-font-weight: bold;
+    -fx-padding: 5 12 5 12;
+    -fx-background-radius: 20;
+    -fx-text-fill: #ffffff;
+}
+.order-status-pending {
+    -fx-background-color: #b8935a;
+}
+.order-status-confirmed {
+    -fx-background-color: #4a7c59;
+}
+.order-status-cancelled {
+    -fx-background-color: #b3453f;
+}
+.btn-danger-outline {
+    -fx-background-color: transparent;
+    -fx-text-fill: #b3453f;
+    -fx-border-color: #b3453f;
+    -fx-border-width: 1;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 2;
+    -fx-border-radius: 2;
+    -fx-cursor: hand;
+}
+.btn-danger-outline:hover {
+    -fx-background-color: rgba(179,69,63,0.08);
+}
+.btn-danger-outline:disabled, .btn-outline-dark:disabled {
+    -fx-opacity: 0.45;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    -fx-background-color: #f7f5f0;
+}
+.footer-logo {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
+.footer-text {
+    -fx-font-size: 11px;
+    -fx-text-fill: #9a9790;
+}
+
+/* ===================================================
+   DASHBOARD ADMIN
+   =================================================== */
+.admin-header {
+    -fx-background-color: #141210;
+}
+.admin-sidebar {
+    -fx-background-color: #141210;
+    -fx-min-width: 232;
+    -fx-pref-width: 232;
+    -fx-max-width: 232;
+}
+.admin-logo {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+.admin-badge {
+    -fx-background-color: #b8935a;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 9 3 9;
+    -fx-background-radius: 20;
+}
+.admin-nav {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #bdbab3;
+    -fx-cursor: hand;
+    -fx-padding: 4 2 4 12;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 3;
+}
+.admin-nav:hover {
+    -fx-text-fill: #ffffff;
+}
+.admin-nav-active {
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #b8935a;
+    -fx-border-width: 0 0 0 3;
+}
+.admin-user {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #e7e5e0;
+}
+.admin-logout {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #d98b84;
+    -fx-cursor: hand;
+}
+.admin-logout:hover {
+    -fx-text-fill: #f0b3ad;
+    -fx-underline: true;
+}
+
+/* Kartu ringkasan angka */
+.stat-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 20 22 20 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 16, 0, 0, 4);
+}
+.stat-value {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.stat-label {
+    -fx-font-size: 11.5px;
+    -fx-text-fill: #9a9790;
+}
+
+/* Baris paket di halaman Kelola Paket */
+.admin-cat-header {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+    -fx-padding: 8 0 2 0;
+}
+.tier-row {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-padding: 16 20 16 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 12, 0, 0, 3);
+}
+.tier-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+.tier-price {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #b8935a;
+}
