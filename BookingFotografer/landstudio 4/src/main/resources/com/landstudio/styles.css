@@ -167,16 +167,16 @@
 
 /* ---------- CTA Section ---------- */
 .cta-section {
-  -fx-background-color: #141210;
+  -fx-background-color: #f7f5f0;
 }
 .cta-title {
   -fx-font-family: "Georgia";
   -fx-font-size: 34px;
-  -fx-text-fill: #ffffff;
+  -fx-text-fill: #000000;
 }
 .cta-subtitle {
   -fx-font-size: 13.5px;
-  -fx-text-fill: #bdbab3;
+  -fx-text-fill: #000000;
   -fx-max-width: 620;
   -fx-text-alignment: center;
 }
@@ -184,7 +184,7 @@
 /* ---------- Buttons ---------- */
 .btn-gold {
   -fx-background-color: #b8935a;
-  -fx-text-fill: #ffffff;
+  -fx-text-fill: #000000;
   -fx-font-size: 12px;
   -fx-font-weight: bold;
   -fx-padding: 12 26 12 26;
@@ -196,8 +196,8 @@
 }
 .btn-outline {
   -fx-background-color: transparent;
-  -fx-text-fill: #ffffff;
-  -fx-border-color: #ffffff;
+  -fx-text-fill: #b8935a;
+  -fx-border-color: #b8935a;
   -fx-border-width: 1;
   -fx-font-size: 12px;
   -fx-font-weight: bold;
@@ -207,7 +207,7 @@
   -fx-cursor: hand;
 }
 .btn-outline:hover {
-  -fx-background-color: rgba(255, 255, 255, 0.08);
+  -fx-background-color: #9d7d4d8e;
 }
 .btn-outline-dark {
   -fx-background-color: transparent;
@@ -556,7 +556,7 @@
 
 /* ---------- Footer ---------- */
 .footer {
-  -fx-background-color: #f7f5f0;
+  -fx-background-color: #efece6;
 }
 .footer-logo {
   -fx-font-family: "Georgia";
