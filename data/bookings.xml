@@ -105,4 +105,19 @@
     <status>DIKONFIRMASI</status>
     <createdAt>2026-07-14T09:41:39.555816</createdAt>
   </booking>
+  <booking id="LS-0008">
+    <ownerEmail>jack@homelander.com</ownerEmail>
+    <namaPelanggan>jack</namaPelanggan>
+    <email>jack@homelander.com</email>
+    <telepon>021321512</telepon>
+    <alamat>seturan</alamat>
+    <paket>Pernikahan Silver</paket>
+    <tanggal>2026-07-16</tanggal>
+    <jam>08:00 - 10:00</jam>
+    <catatan/>
+    <metodePembayaran>Transfer Bank</metodePembayaran>
+    <paymentStatus>LUNAS</paymentStatus>
+    <status>DIKONFIRMASI</status>
+    <createdAt>2026-07-14T10:04:28.502698700</createdAt>
+  </booking>
 </bookings>

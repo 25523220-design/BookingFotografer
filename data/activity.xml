@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <activities>
-                                
+                                    
+  
+  
   
   
   
@@ -16,6 +18,181 @@
   
   
   <activity time="2026-07-13T09:36:39.334231">
+                                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <actor>budi@email.com</actor>
+                                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <action>BOOKING_BARU</action>
+                                                                        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <detail>Booking LS-0003 - Pernikahan Gold pada Selasa, 21 Juli 2026</detail>
+                                                                      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </activity>
+                                  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <activity time="2026-07-13T09:36:55.925292">
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <actor>budi@email.com</actor>
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <action>GANTI_JADWAL</action>
+                                                                    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <detail>Pesanan LS-0001 dijadwalkan ulang ke Rabu, 22 Juli 2026, pukul 09:00</detail>
+                                                                  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </activity>
+                                
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <activity time="2026-07-13T09:37:00.534274">
                                                                 
     
     
@@ -47,7 +224,7 @@
     
     
     
-    <action>BOOKING_BARU</action>
+    <action>PESANAN_BATAL</action>
                                                                 
     
     
@@ -63,7 +240,7 @@
     
     
     
-    <detail>Booking LS-0003 - Pernikahan Gold pada Selasa, 21 Juli 2026</detail>
+    <detail>Pelanggan membatalkan pesanan LS-0001</detail>
                                                               
   
   
@@ -95,7 +272,7 @@
   
   
   
-  <activity time="2026-07-13T09:36:55.925292">
+  <activity time="2026-07-13T09:38:08.606140">
                                                             
     
     
@@ -110,7 +287,7 @@
     
     
     
-    <actor>budi@email.com</actor>
+    <actor>admin@landstudio.com</actor>
                                                             
     
     
@@ -125,7 +302,7 @@
     
     
     
-    <action>GANTI_JADWAL</action>
+    <action>PAKET_UBAH</action>
                                                             
     
     
@@ -140,7 +317,7 @@
     
     
     
-    <detail>Pesanan LS-0001 dijadwalkan ulang ke Rabu, 22 Juli 2026, pukul 09:00</detail>
+    <detail>Mengubah paket "Pernikahan Silver" menjadi "Pernikahan Silver" (Rp 4.000.000)</detail>
                                                           
   
   
@@ -170,7 +347,7 @@
   
   
   
-  <activity time="2026-07-13T09:37:00.534274">
+  <activity time="2026-07-13T19:38:44.910762900">
                                                         
     
     
@@ -184,7 +361,7 @@
     
     
     
-    <actor>budi@email.com</actor>
+    <actor>Yanto12@Gmail.com</actor>
                                                         
     
     
@@ -198,7 +375,7 @@
     
     
     
-    <action>PESANAN_BATAL</action>
+    <action>REGISTRASI</action>
                                                         
     
     
@@ -212,7 +389,7 @@
     
     
     
-    <detail>Pelanggan membatalkan pesanan LS-0001</detail>
+    <detail>Akun baru terdaftar: Yanto (Yanto12@Gmail.com)</detail>
                                                       
   
   
@@ -240,7 +417,7 @@
   
   
   
-  <activity time="2026-07-13T09:38:08.606140">
+  <activity time="2026-07-13T19:46:33.320779800">
                                                     
     
     
@@ -253,7 +430,7 @@
     
     
     
-    <actor>admin@landstudio.com</actor>
+    <actor>Yanto12@Gmail.com</actor>
                                                     
     
     
@@ -266,7 +443,7 @@
     
     
     
-    <action>PAKET_UBAH</action>
+    <action>BOOKING_BARU</action>
                                                     
     
     
@@ -279,7 +456,7 @@
     
     
     
-    <detail>Mengubah paket "Pernikahan Silver" menjadi "Pernikahan Silver" (Rp 4.000.000)</detail>
+    <detail>Booking LS-0004 - Wisuda Gold pada Kamis, 30 Juli 2026</detail>
                                                   
   
   
@@ -305,7 +482,7 @@
   
   
   
-  <activity time="2026-07-13T19:38:44.910762900">
+  <activity time="2026-07-13T20:08:09.524919800">
                                                 
     
     
@@ -317,7 +494,7 @@
     
     
     
-    <actor>Yanto12@Gmail.com</actor>
+    <actor>y12@Gmail.com</actor>
                                                 
     
     
@@ -341,7 +518,7 @@
     
     
     
-    <detail>Akun baru terdaftar: Yanto (Yanto12@Gmail.com)</detail>
+    <detail>Akun baru terdaftar: yanto (y12@Gmail.com)</detail>
                                               
   
   
@@ -365,7 +542,7 @@
   
   
   
-  <activity time="2026-07-13T19:46:33.320779800">
+  <activity time="2026-07-13T20:22:00.498627600">
                                             
     
     
@@ -376,7 +553,7 @@
     
     
     
-    <actor>Yanto12@Gmail.com</actor>
+    <actor>y12@Gmail.com</actor>
                                             
     
     
@@ -398,7 +575,7 @@
     
     
     
-    <detail>Booking LS-0004 - Wisuda Gold pada Kamis, 30 Juli 2026</detail>
+    <detail>Booking LS-0005 - Pernikahan Gold pada Kamis, 16 Juli 2026</detail>
                                           
   
   
@@ -420,7 +597,7 @@
   
   
   
-  <activity time="2026-07-13T20:08:09.524919800">
+  <activity time="2026-07-13T20:28:39.598649100">
                                         
     
     
@@ -440,7 +617,7 @@
     
     
     
-    <action>REGISTRASI</action>
+    <action>GANTI_JADWAL</action>
                                         
     
     
@@ -450,7 +627,7 @@
     
     
     
-    <detail>Akun baru terdaftar: yanto (y12@Gmail.com)</detail>
+    <detail>Pesanan LS-0005 dijadwalkan ulang ke Kamis, 16 Juli 2026, pukul 10:00 - 12:00</detail>
                                       
   
   
@@ -470,7 +647,7 @@
   
   
   
-  <activity time="2026-07-13T20:22:00.498627600">
+  <activity time="2026-07-13T20:28:59.670097100">
                                     
     
     
@@ -488,7 +665,7 @@
     
     
     
-    <action>BOOKING_BARU</action>
+    <action>PESANAN_BATAL</action>
                                     
     
     
@@ -497,7 +674,7 @@
     
     
     
-    <detail>Booking LS-0005 - Pernikahan Gold pada Kamis, 16 Juli 2026</detail>
+    <detail>Pelanggan membatalkan pesanan LS-0005</detail>
                                   
   
   
@@ -515,7 +692,7 @@
   
   
   
-  <activity time="2026-07-13T20:28:39.598649100">
+  <activity time="2026-07-13T20:31:11.527283400">
                                 
     
     
@@ -531,7 +708,7 @@
     
     
     
-    <action>GANTI_JADWAL</action>
+    <action>BOOKING_BARU</action>
                                 
     
     
@@ -539,7 +716,7 @@
     
     
     
-    <detail>Pesanan LS-0005 dijadwalkan ulang ke Kamis, 16 Juli 2026, pukul 10:00 - 12:00</detail>
+    <detail>Booking LS-0006 - Pernikahan Silver pada Selasa, 14 Juli 2026</detail>
                               
   
   
@@ -555,7 +732,7 @@
   
   
   
-  <activity time="2026-07-13T20:28:59.670097100">
+  <activity time="2026-07-13T20:34:06.868548400">
                             
     
     
@@ -569,14 +746,14 @@
     
     
     
-    <action>PESANAN_BATAL</action>
+    <action>GANTI_JADWAL</action>
                             
     
     
     
     
     
-    <detail>Pelanggan membatalkan pesanan LS-0005</detail>
+    <detail>Pesanan LS-0006 dijadwalkan ulang ke Selasa, 14 Juli 2026, pukul 19:00 - 21:00</detail>
                           
   
   
@@ -590,7 +767,7 @@
   
   
   
-  <activity time="2026-07-13T20:31:11.527283400">
+  <activity time="2026-07-13T20:50:24.182275800">
                         
     
     
@@ -602,13 +779,13 @@
     
     
     
-    <action>BOOKING_BARU</action>
+    <action>PESANAN_BATAL</action>
                         
     
     
     
     
-    <detail>Booking LS-0006 - Pernikahan Silver pada Selasa, 14 Juli 2026</detail>
+    <detail>Pelanggan membatalkan pesanan LS-0006</detail>
                       
   
   
@@ -620,22 +797,22 @@
   
   
   
-  <activity time="2026-07-13T20:34:06.868548400">
+  <activity time="2026-07-14T09:27:30.356927800">
                     
     
     
     
-    <actor>y12@Gmail.com</actor>
+    <actor>janiti@gmail.com</actor>
                     
     
     
     
-    <action>GANTI_JADWAL</action>
+    <action>REGISTRASI</action>
                     
     
     
     
-    <detail>Pesanan LS-0006 dijadwalkan ulang ke Selasa, 14 Juli 2026, pukul 19:00 - 21:00</detail>
+    <detail>Akun baru terdaftar: JANITI (janiti@gmail.com)</detail>
                   
   
   
@@ -645,19 +822,19 @@
   
   
   
-  <activity time="2026-07-13T20:50:24.182275800">
+  <activity time="2026-07-14T09:41:15.134157500">
                 
     
     
-    <actor>y12@Gmail.com</actor>
+    <actor>shinji@gmail.com</actor>
                 
     
     
-    <action>PESANAN_BATAL</action>
+    <action>REGISTRASI</action>
                 
     
     
-    <detail>Pelanggan membatalkan pesanan LS-0006</detail>
+    <detail>Akun baru terdaftar: shinji (shinji@gmail.com)</detail>
               
   
   
@@ -665,34 +842,34 @@
       
   
   
-  <activity time="2026-07-14T09:27:30.356927800">
+  <activity time="2026-07-14T09:41:47.599202100">
             
     
-    <actor>janiti@gmail.com</actor>
+    <actor>shinji@gmail.com</actor>
             
     
-    <action>REGISTRASI</action>
+    <action>BOOKING_BARU</action>
             
     
-    <detail>Akun baru terdaftar: JANITI (janiti@gmail.com)</detail>
+    <detail>Booking LS-0007 - Pre-Wedding Gold pada Jumat, 31 Juli 2026</detail>
           
   
   </activity>
     
   
-  <activity time="2026-07-14T09:41:15.134157500">
+  <activity time="2026-07-14T10:03:13.578830300">
         
-    <actor>shinji@gmail.com</actor>
+    <actor>jack@homelander.com</actor>
         
     <action>REGISTRASI</action>
         
-    <detail>Akun baru terdaftar: shinji (shinji@gmail.com)</detail>
+    <detail>Akun baru terdaftar: jack (jack@homelander.com)</detail>
       
   </activity>
   
-  <activity time="2026-07-14T09:41:47.599202100">
-    <actor>shinji@gmail.com</actor>
+  <activity time="2026-07-14T10:04:35.543936500">
+    <actor>jack@homelander.com</actor>
     <action>BOOKING_BARU</action>
-    <detail>Booking LS-0007 - Pre-Wedding Gold pada Jumat, 31 Juli 2026</detail>
+    <detail>Booking LS-0008 - Pernikahan Silver pada Kamis, 16 Juli 2026</detail>
   </activity>
 </activities>

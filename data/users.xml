@@ -30,4 +30,9 @@
     <email>shinji@gmail.com</email>
     <password>shinji</password>
   </user>
+  <user admin="false">
+    <fullName>jack</fullName>
+    <email>jack@homelander.com</email>
+    <password>aa1234</password>
+  </user>
 </users>
