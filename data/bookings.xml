@@ -90,4 +90,19 @@
     <status>DIBATALKAN</status>
     <createdAt>2026-07-13T20:31:08.703293900</createdAt>
   </booking>
+  <booking id="LS-0007">
+    <ownerEmail>shinji@gmail.com</ownerEmail>
+    <namaPelanggan>shinji</namaPelanggan>
+    <email>shinji@gmail.com</email>
+    <telepon>099887</telepon>
+    <alamat>jl. jjhhh</alamat>
+    <paket>Pre-Wedding Gold</paket>
+    <tanggal>2026-07-31</tanggal>
+    <jam>08:00 - 10:00</jam>
+    <catatan>hdhd</catatan>
+    <metodePembayaran>QRIS</metodePembayaran>
+    <paymentStatus>LUNAS</paymentStatus>
+    <status>DIKONFIRMASI</status>
+    <createdAt>2026-07-14T09:41:39.555816</createdAt>
+  </booking>
 </bookings>

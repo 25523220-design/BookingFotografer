@@ -20,4 +20,14 @@
     <email>y12@Gmail.com</email>
     <password>111111</password>
   </user>
+  <user admin="false">
+    <fullName>JANITI</fullName>
+    <email>janiti@gmail.com</email>
+    <password>12345a</password>
+  </user>
+  <user admin="false">
+    <fullName>shinji</fullName>
+    <email>shinji@gmail.com</email>
+    <password>shinji</password>
+  </user>
 </users>
